@@ -10,6 +10,7 @@ public class RainController : MonoBehaviour {
 	
 	public float activateDist = 200f;
 	private float dist;
+	private int emissionMultiplier;
 
 	void Start () {
 		t = GetComponent<Transform>();
@@ -25,5 +26,14 @@ public class RainController : MonoBehaviour {
 		} else if (dist >= activateDist) {
 			ps.Stop();
 		}
+
+		if(ps.emissionRate > 12000){
+			emissionMultiplier = -200;
+		} else if (ps.emissionRate < 8000){
+			emissionMultiplier = 200;
+		}
+
+		ps.emissionRate += Time.deltaTime * emissionMultiplier;
+
 	}
 }

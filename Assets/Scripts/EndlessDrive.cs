@@ -15,14 +15,19 @@ public class EndlessDrive : MonoBehaviour {
 		totalChunksTraveled = 0;
 	}
 	
-	// Update is called once per frame
 	void Update () {
+		// Driving on road
 		if(t.position.z > (startPos.z + 100)){
-			t.position = new Vector3(t.position.x, t.position.y, startPos.z - 100);
+			t.position = new Vector3(t.position.x, t.position.y, startPos.z);
 			totalChunksTraveled++;
 		} else if (t.position.z < (startPos.z - 100)){
-			t.position = new Vector3(t.position.x, t.position.y, startPos.z + 100);
+			t.position = new Vector3(t.position.x, t.position.y, startPos.z);
 			totalChunksTraveled--;
+		// Away from road
+		} else if (t.position.x > (startPos.x + 100)){
+			t.position = new Vector3(startPos.x, t.position.y, t.position.z);
+		} else if (t.position.x < (startPos.x - 100)){
+			t.position = new Vector3(startPos.x, t.position.y, t.position.z);
 		}
 
 	}
