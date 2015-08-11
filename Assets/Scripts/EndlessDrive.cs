@@ -24,10 +24,10 @@ public class EndlessDrive : MonoBehaviour {
 			t.position = new Vector3(t.position.x, t.position.y, startPos.z);
 			totalChunksTraveled--;
 		// Away from road
-		} else if (t.position.x > (startPos.x + 100)){
-			t.position = new Vector3(startPos.x, t.position.y, t.position.z);
-		} else if (t.position.x < (startPos.x - 100)){
-			t.position = new Vector3(startPos.x, t.position.y, t.position.z);
+		} else if (t.position.x > (startPos.x + 150)){
+			t.position = new Vector3(startPos.x + 100, t.position.y, t.position.z);
+		} else if (t.position.x < (startPos.x - 150)){
+			t.position = new Vector3(startPos.x - 100, t.position.y, t.position.z);
 		}
 
 	}
